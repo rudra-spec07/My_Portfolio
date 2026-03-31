@@ -23,7 +23,7 @@ export default function App() {
       const timer = setTimeout(() => {
         setShowIntro(false);
         sessionStorage.setItem("introPlayed", "true"); // Save to browser memory
-      }, 6500);
+      }, 8000);
 
       return () => clearTimeout(timer);
     }

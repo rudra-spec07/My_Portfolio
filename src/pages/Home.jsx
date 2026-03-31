@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   // UPDATED DELAY: Now waits 4.2 seconds for the new, longer intro sequence to finish!
-  const baseDelay = sessionStorage.getItem("introPlayed") ? 0 : 6.7;
+  const baseDelay = sessionStorage.getItem("introPlayed") ? 0 : 8.2;
 
   return (
     <PageWrapper>

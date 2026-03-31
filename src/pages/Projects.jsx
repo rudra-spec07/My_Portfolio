@@ -11,21 +11,21 @@ export default function Projects() {
       description: "A fully responsive modern e-commerce store built with React, featuring a dynamic shopping cart and product filtering.",
       tech: [<FaReact key="react"/>, <SiTailwindcss key="tailwind"/>],
       codeLink: "https://github.com/rudra-spec07/E-Commerce.git",
-      liveLink: "#"
+      liveLink: "https://e-commerce-w27m.onrender.com"
     },
     {
       title: "Expense Tracker",
       description: "A simple and intuitive expense management application to track daily spending and visualize financial data.",
       tech: [<FaReact key="react"/>, <SiTailwindcss key="tailwind"/>],
       codeLink: "https://github.com/rudra-spec07/Expense-Tracker.git",
-      liveLink: "#"
+      liveLink: "https://rudra-spec07.github.io/Expense-Tracker/"
     },
     {
       title: "Crypto Dashboard",
       description: "Real-time cryptocurrency tracking dashboard pulling live data from external APIs to display market trends.",
       tech: [<FaReact key="react"/>, <SiTailwindcss key="tailwind"/>],
       codeLink: "https://github.com/rudra-spec07/Crypto--Dashboard.git",
-      liveLink: "#"
+      liveLink: "https://rudra-spec07.github.io/Crypto--Dashboard/"
     }
   ];
 

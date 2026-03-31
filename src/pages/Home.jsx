@@ -3,8 +3,12 @@ import PageWrapper from "../components/PageWrapper";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { FaReact } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 export default function Home() {
+  // UPDATED DELAY: Now waits 4.2 seconds for the new, longer intro sequence to finish!
+  const baseDelay = sessionStorage.getItem("introPlayed") ? 0 : 6.7;
+
   return (
     <PageWrapper>
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0f172a] text-slate-200 px-6 md:px-12 lg:px-24">
@@ -23,7 +27,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: baseDelay }}
               className="mb-6"
             >
               <span className="px-4 py-1.5 text-sm font-semibold text-blue-400 bg-blue-400/10 rounded-full border border-blue-400/20 backdrop-blur-sm shadow-lg">
@@ -35,7 +39,7 @@ export default function Home() {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              transition={{ duration: 0.7, delay: baseDelay + 0.1 }}
               className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]"
             >
               Hi, I'm <br/>
@@ -48,7 +52,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
+              transition={{ duration: 0.7, delay: baseDelay + 0.3 }}
               className="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed"
             >
               Frontend Developer specialized in React, Tailwind, and building intuitive web applications that deliver exceptional user experiences.
@@ -58,27 +62,27 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: baseDelay + 0.5 }}
               className="flex flex-wrap items-center gap-4"
             >
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="/projects"
-                className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all"
-              >
-                View My Work
-              </motion.a>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/projects"
+                  className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all inline-block"
+                >
+                  View My Work
+                </Link>
+              </motion.div>
 
-              {/* NEW: About Me Button */}
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="/about" 
-                className="px-8 py-3.5 bg-transparent border-2 border-slate-700 hover:border-slate-500 hover:bg-slate-800/50 text-slate-300 hover:text-white rounded-lg font-bold transition-all"
-              >
-                About Me
-              </motion.a>
+              {/* About Me Button */}
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/about" 
+                  className="px-8 py-3.5 bg-transparent border-2 border-slate-700 hover:border-slate-500 hover:bg-slate-800/50 text-slate-300 hover:text-white rounded-lg font-bold transition-all inline-block"
+                >
+                  About Me
+                </Link>
+              </motion.div>
               
               {/* Social Links */}
               <div className="flex items-center gap-4 ml-2">
@@ -119,33 +123,37 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: baseDelay + 0.2 }}
               className="relative w-full max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl z-10"
             >
-              {/* FIXED: Added 'object-top' to prioritize the top of the photo */}
               <img 
-                src="/image3.jpeg" // Put your image path back here
+                src="/image3.jpeg" 
                 alt="Rudra Kumar Choubey" 
                 className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
               />
-              
-              {/* Subtle inner shadow/gradient to blend the image into the dark theme */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60 pointer-events-none"></div>
             </motion.div>
 
             {/* Floating Tech Badges */}
-            {/* FIXED: Added lg:right-auto to prevent the block from stretching across the face */}
             <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: [0, -15, 0] }}
+              transition={{ 
+                opacity: { duration: 0.5, delay: baseDelay + 0.5 },
+                y: { repeat: Infinity, duration: 4, ease: "easeInOut", delay: baseDelay + 0.5 } 
+              }}
               className="absolute -top-6 right-10 lg:right-auto lg:-left-6 bg-[#1e293b]/80 backdrop-blur-md p-4 rounded-xl border border-slate-700 shadow-xl z-20"
             >
               <FaReact className="text-4xl text-[#61dafb]" />
             </motion.div>
 
             <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: [0, 15, 0] }}
+              transition={{ 
+                opacity: { duration: 0.5, delay: baseDelay + 0.8 },
+                y: { repeat: Infinity, duration: 5, ease: "easeInOut", delay: baseDelay + 1.8 } 
+              }}
               className="absolute -bottom-8 left-10 lg:left-auto lg:-right-6 bg-[#1e293b]/80 backdrop-blur-md p-4 rounded-xl border border-slate-700 shadow-xl z-20"
             >
               <SiTailwindcss className="text-4xl text-[#38bdf8]" />

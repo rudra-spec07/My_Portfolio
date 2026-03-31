@@ -32,4 +32,12 @@ body{
 .gradient-bg{
   background: linear-gradient(135deg,#38bdf8,#6366f1);
 }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: This prevents the scroll from cutting off your Navbar */
+section {
+  scroll-margin-top: 80px; 
+}
 

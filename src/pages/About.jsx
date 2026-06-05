@@ -75,7 +75,7 @@ export default function About() {
               className="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden border-4 border-slate-800 shadow-[0_0_30px_rgba(59,130,246,0.3)] z-10"
             >
               <img 
-                src="/image2.jpeg" // Replace with your image
+                src="/image5.jpeg" // Replace with your image
                 alt="Rudra Kumar Choubey" 
                 className="w-full h-full object-cover object-top"
               />

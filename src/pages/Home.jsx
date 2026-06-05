@@ -76,7 +76,7 @@ export default function Home() {
           <div className="relative w-full flex justify-center items-center order-1 lg:order-2 mt-10 lg:mt-0">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-[80px] opacity-40"></div>
             <motion.div initial={{ opacity: 0, scale: 0.8, rotate: -5 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 0.8, delay: baseDelay + 0.2 }} className="relative w-full max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl z-10">
-              <img src="/image3.jpeg" alt="Rudra Kumar Choubey" className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105" />
+              <img src="/image4.jpeg" alt="Rudra Kumar Choubey" className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60 pointer-events-none"></div>
             </motion.div>
 
